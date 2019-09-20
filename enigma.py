@@ -9,6 +9,31 @@ def rotate(rotor):
 	tmp_r = rotor.pop(0)
 	rotor.append(tmp_r)
 	return rotor
+	
+def encode(input):
+	output = list()
+
+	nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
+	for char in input:
+
+	plug = plugboard[char]
+   
+	RIII = RIII_outside.index(rotorIII[plug])
+   
+	RII = RII_outside.index(rotorII[RIII])
+   
+	RI = RI_outside.index(rotorI[RII])
+   
+	ref = reflector[RI]
+
+	b_RI = rotorI.index(RI_outside[ref])
+   
+	b_RII = rotorII.index(RII_outside[b_RI])
+   
+	b_RIII = rotorIII.index(RIII_outside[b_RII])
+	out = plugboard[b_RIII]
+	output.append(out)
+return output
 
 if __name__ == "__main__":
 	main()
