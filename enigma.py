@@ -33,24 +33,24 @@ def encode(input):
 
 	nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
 	for char in input:
+		
+		plug = plugboard[char]
+   
+		RIII = RIII_outside.index(rotorIII[plug])
+   
+		RII = RII_outside.index(rotorII[RIII])
+   
+		RI = RI_outside.index(rotorI[RII])
+   
+		ref = reflector[RI]
 
-	plug = plugboard[char]
+		b_RI = rotorI.index(RI_outside[ref])
    
-	RIII = RIII_outside.index(rotorIII[plug])
+		b_RII = rotorII.index(RII_outside[b_RI])
    
-	RII = RII_outside.index(rotorII[RIII])
-   
-	RI = RI_outside.index(rotorI[RII])
-   
-	ref = reflector[RI]
-
-	b_RI = rotorI.index(RI_outside[ref])
-   
-	b_RII = rotorII.index(RII_outside[b_RI])
-   
-	b_RIII = rotorIII.index(RIII_outside[b_RII])
-	out = plugboard[b_RIII]
-	output.append(out)
+		b_RIII = rotorIII.index(RIII_outside[b_RII])
+		out = plugboard[b_RIII]
+		output.append(out)
 return output
 >>>>>>> f65d6a38caac08b570013333427fdbd58e43e9d2
 
