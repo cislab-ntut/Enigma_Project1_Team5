@@ -6,21 +6,6 @@ num_to_alphet = {0:"A",1:"B",2:"C",3:"D",4:"E",5:"F",6:"G",7:"H",8:"I",9:"J",10:
 				19:"T",20:"U",21:"V",22:"W",23:"X",24:"Y",25:"Z"}
 
 <<<<<<< HEAD
-
-def encode(input):
-	output = list()
-	global num_to_alphet
-	nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
-	for char in input:
-			rotorIII, RIII_outside = rotate(rotorIII, RIII_outside)
-
-			if rotorII[1] == arrow[1] and rotorIII[0] != arrow[0]:
-				rotorII, RII_outside = rotate(rotorII, RII_outside)
-				rotorI, RI_outside = rotate(rotorI, RI_outside)
-			if rotorIII[0] == arrow[0]:
-				rotorII, RII_outside = rotate(rotorII, RII_outside)
-
-	return output
 	
 =======
 def rotate(rotor):
@@ -33,6 +18,18 @@ def encode(input):
 
 	nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
 	for char in input:
+		
+		rotorIII = rotate(rotorIII)
+		RIII_outside = rotate( RIII_outside)
+
+		if rotorII[1] == arrow[1] and rotorIII[0] != arrow[0]:
+			rotorII = rotate(rotorII)
+			RII_outside = rotate(RII_outside)
+			rotorI = rotate(rotorI)
+			RI_outside = rotate(RI_outside)
+		if rotorIII[0] == arrow[0]:
+			rotorII = rotate(rotorII)
+			RII_outside = rotate(RII_outside)
 		
 		plug = plugboard[char]
    
