@@ -13,42 +13,69 @@ def rotate(rotor):
 	rotor.append(tmp_r)
 	return rotor
 	
-def encode(input):
-	output = list()
 
-	nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
-	for char in input:
-		
-		rotorIII = rotate(rotorIII)
-		RIII_outside = rotate( RIII_outside)
+def main():
 
-		if rotorII[1] == arrow[1] and rotorIII[0] != arrow[0]:
-			rotorII = rotate(rotorII)
-			RII_outside = rotate(RII_outside)
-			rotorI = rotate(rotorI)
-			RI_outside = rotate(RI_outside)
-		if rotorIII[0] == arrow[0]:
-			rotorII = rotate(rotorII)
-			RII_outside = rotate(RII_outside)
-		
-		plug = plugboard[char]
-   
-		RIII = RIII_outside.index(rotorIII[plug])
-   
-		RII = RII_outside.index(rotorII[RIII])
-   
-		RI = RI_outside.index(rotorI[RII])
-   
-		ref = reflector[RI]
+	plugboard = read_file('plugboard_my.txt')
+	RIII_outside = read_file('outside.txt')
+	RII_outside = read_file('outside.txt')
+	RI_outside = read_file('outside.txt')
+	rotorI = read_file('Rotor_I_web.txt')
+	rotorII = read_file('Rotor_II_web.txt')
+	rotorIII = read_file('Rotor_III_web.txt')
+	reflector = read_file('reflector_web.txt')
+	start = read_file('Rotor_start_web.txt')
+	arrow = read_file('Rotor_arrow_web.txt')
+	
+	arrow[0] = rotorIII[arrow[0]]
+	arrow[1] = rotorII[arrow[1]]
+	arrow[2] = rotorI[arrow[2]]
+	
+	RIII_outside, rotorIII = initial(RIII_outside, rotorIII, start[0])
+	RII_outside, rotorII = initial(RII_outside, rotorII, start[1])
+	RI_outside, rotorI = initial(RI_outside, rotorI, start[2])
 
-		b_RI = rotorI.index(RI_outside[ref])
-   
-		b_RII = rotorII.index(RII_outside[b_RI])
-   
-		b_RIII = rotorIII.index(RIII_outside[b_RII])
-		out = plugboard[b_RIII]
-		output.append(out)
-return output
+	def encode(input):
+		output = list()
+
+		nonlocal plugboard, rotorI, rotorII, rotorIII, reflector, arrow, RIII_outside, RII_outside, RI_outside
+		for char in input:
+			
+			rotorIII = rotate(rotorIII)
+			RIII_outside = rotate( RIII_outside)
+
+			if rotorII[1] == arrow[1] and rotorIII[0] != arrow[0]:
+				rotorII = rotate(rotorII)
+				RII_outside = rotate(RII_outside)
+				rotorI = rotate(rotorI)
+				RI_outside = rotate(RI_outside)
+			if rotorIII[0] == arrow[0]:
+				rotorII = rotate(rotorII)
+				RII_outside = rotate(RII_outside)
+			
+			plug = plugboard[char]
+	   
+			RIII = RIII_outside.index(rotorIII[plug])
+	   
+			RII = RII_outside.index(rotorII[RIII])
+	   
+			RI = RI_outside.index(rotorI[RII])
+	   
+			ref = reflector[RI]
+
+			b_RI = rotorI.index(RI_outside[ref])
+	   
+			b_RII = rotorII.index(RII_outside[b_RI])
+	   
+			b_RIII = rotorIII.index(RIII_outside[b_RII])
+			out = plugboard[b_RIII]
+			output.append(out)
+		return output
+
+	input = [alphet_to_num[char] for char in list(sys.argv[1])]
+	code = encode(input)
+	output = [num_to_alphet[num] for num in code]
+	print(output)
 >>>>>>> f65d6a38caac08b570013333427fdbd58e43e9d2
 
 if __name__ == "__main__":
