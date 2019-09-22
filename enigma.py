@@ -13,6 +13,11 @@ def rotate(rotor):
 	rotor.append(tmp_r)
 	return rotor
 	
+def initial(outerrotor,innerrotor , startposition):
+	while(outerrotor[0] !=startposition):
+		outerrotor = rotate(outerrotor)
+		innerrotor = rotate(innerrotor)
+	return outerrotor , innerrotor
 
 def main():
 
