@@ -12,7 +12,18 @@ def rotate(rotor):
 	tmp_r = rotor.pop(0)
 	rotor.append(tmp_r)
 	return rotor
-	
+
+def read_file(filename):
+	global alphet_to_num
+	f = open(filename, "r")
+	lines = f.readlines()
+	string = ""
+	for line in lines:
+		line.strip('\n')
+		string = string+line
+	lst = list(string)
+	file = [alphet_to_num[char] for char in lst]
+	return file
 
 def main():
 
