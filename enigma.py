@@ -19,6 +19,18 @@ def initial(outerrotor,innerrotor , startposition):
 		innerrotor = rotate(innerrotor)
 	return outerrotor , innerrotor
 
+def read_file(filename):
+	global alphet_to_num
+	f = open(filename, "r")
+	lines = f.readlines()
+	string = ""
+	for line in lines:
+		line.strip('\n')
+		string = string+line
+	lst = list(string)
+	file = [alphet_to_num[char] for char in lst]
+	return file
+
 def main():
 
 	plugboard = read_file('plugboard_my.txt')
