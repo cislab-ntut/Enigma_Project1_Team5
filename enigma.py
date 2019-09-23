@@ -44,6 +44,9 @@ def main():
 	arrow[0] = rotorIII[arrow[0]]
 	arrow[1] = rotorII[arrow[1]]
 	arrow[2] = rotorI[arrow[2]]
+	"""
+	
+	"""
 	
 	RIII_outside, rotorIII = initial(RIII_outside, rotorIII, start[0])
 	RII_outside, rotorII = initial(RII_outside, rotorII, start[1])
@@ -61,11 +64,12 @@ def main():
 			if rotorII[1] == arrow[1] and rotorIII[0] != arrow[0]:
 				rotorII = rotate(rotorII)
 				RII_outside = rotate(RII_outside)
-				rotorI = rotate(rotorI)
-				RI_outside = rotate(RI_outside)
 			if rotorIII[0] == arrow[0]:
 				rotorII = rotate(rotorII)
 				RII_outside = rotate(RII_outside)
+			if rotorII[0] == arrow[1]:
+				rotorI = rotate(rotorI)
+				RI_outside = rotate(RI_outside)
 			
 			plug = plugboard[char]
 	   
