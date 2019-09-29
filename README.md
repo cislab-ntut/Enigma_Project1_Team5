@@ -1,6 +1,7 @@
 加密:
 	流程圖:
 		明文 -> plugboard -> rotorIII -> rotorII -> rotorI -> reflector -> rotorI -> rotorII -> rotorIII -> plugboard -> 密文
+		
 	流程說明:
 		明文 -> plugboard:
 			plugboard本身是一個list，用明文當作index來找到對應的字母，EX: 明文A -> plugboard B
