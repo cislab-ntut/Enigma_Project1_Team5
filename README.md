@@ -3,6 +3,7 @@
 	流程圖:
 		明文 -> plugboard -> rotorIII -> rotorII -> rotorI -> reflector -> rotorI -> rotorII -> rotorIII -> plugboard -> 密文
 		
+		
 	流程說明:
 	
 		明文 -> plugboard:
