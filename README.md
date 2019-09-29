@@ -5,15 +5,15 @@
 ```
 
 ## 流程說明
-- [明文 -> plugboard](#明文--gt-plugboard)
-- [plugboard -> rotorIII](#plugboard--gt-rotorIII)
-- [rotorIII -> rotorII](#rotorIII--gt-rotorII)
-- [rotorII -> rotorI](#rotorII--gt-rotorI)
-- [rotorI -> reflector](#rotorI--gt-reflector)
-- [reflector -> rotorI](#reflector--gt-rotorI)
-- [rotorI -> rotorII](#rotorI--gt-rotorII)
-- [rotorII -> rotorIII](#rotorII--gt-rotorIII)
-- [rotorIII -> plugboard -> 密文](#rotorIII--gt-plugboard--gt-密文)
+- [明文 -> plugboard](##明文---plugboard)
+- [plugboard -> rotorIII](#plugboard---rotorIII)
+- [rotorIII -> rotorII](#rotorIII---rotorII)
+- [rotorII -> rotorI](#rotorII---rotorI)
+- [rotorI -> reflector](#rotorI---reflector)
+- [reflector -> rotorI](#reflector---rotorI)
+- [rotorI -> rotorII](#rotorI---rotorII)
+- [rotorII -> rotorIII](#rotorII---rotorIII)
+- [rotorIII -> plugboard -> 密文](#rotorIII---plugboard---密文)
 
 ### 明文 -> plugboard
 plugboard本身是一個list，用明文當作index來找到對應的字母，EX: 明文A -> plugboard B
