@@ -5,7 +5,7 @@
 ```
 
 ## 流程說明
-- [明文 -> plugboard](##明文---plugboard)
+- [明文 -> plugboard](#明文---plugboard)
 - [plugboard -> rotorIII](#plugboard---rotorIII)
 - [rotorIII -> rotorII](#rotorIII---rotorII)
 - [rotorII -> rotorI](#rotorII---rotorI)
